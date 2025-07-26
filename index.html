@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Whack-a-Mole</title>
     <style>
-        body{
+        body {
             background-color: rgb(213, 236, 244);
         }
         h1 {
@@ -17,19 +17,18 @@
             font-size: xx-large;
         }
         #main-container {
-         display: flex;
-         align-items: center;
-         margin: auto;
-         flex-wrap: wrap;
-         width: max-content;
-         height: 85vh;
+            display: flex;
+            align-items: center;
+            margin: auto;
+            flex-wrap: wrap;
+            width: max-content;
+            height: 85vh;
         }
         #main-container div {
-         padding: 5em;
-         background-color: gray;
-         margin: 0.5em;
-         border-radius: 50%;
-        
+            padding: 5em;
+            background-color: gray;
+            margin: 0.5em;
+            border-radius: 50%;
         }
     </style>
 </head>
@@ -37,9 +36,34 @@
     <h1>Whack-a-Mole</h1>
     <p>Score: 0</p>
     <div id="main-container">
-    <div></div>
-    <div></div>
-    <div></div>
+        <div id="c1"></div>
+        <div id="c2"></div>
+        <div id="c3"></div>
     </div>
+
+    <script>
+        let random = 1;
+        let timer = null;
+        timer = setInterval(function() {
+            random = Math.floor(Math.random() * 3) + 1;
+            const c1 = document.getElementById("c1");
+            const c2 = document.getElementById("c2");
+            const c3 = document.getElementById("c3");
+
+            if (random == 1) {
+                c1.style.backgroundColor = "green";
+                c2.style.backgroundColor = "grey";
+                c3.style.backgroundColor = "grey";
+            } else if (random == 2) {
+                c1.style.backgroundColor = "grey";
+                c2.style.backgroundColor = "green";
+                c3.style.backgroundColor = "grey";
+            } else if (random == 3) {
+                c1.style.backgroundColor = "grey";
+                c2.style.backgroundColor = "grey";
+                c3.style.backgroundColor = "green";
+            }
+        }, 500); // ✅ Correct closing of setInterval
+    </script>
 </body>
 </html>
